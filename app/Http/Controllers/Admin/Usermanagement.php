@@ -50,6 +50,7 @@ class Usermanagement extends Controller
     public function sendMail(Request $req)
     {
         $mail = $req->email;
+        return redirect()->back();
         Mail::to($mail)->send(new TestMail());
     }
 }
