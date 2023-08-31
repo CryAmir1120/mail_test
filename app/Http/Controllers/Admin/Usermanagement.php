@@ -36,8 +36,10 @@ class Usermanagement extends Controller
         $email = $req->email;
         $pwd = $req->password;
         $new_user = User::create([
-            'email' => $email,
-            'password' => Hash::make($pwd)
+            'email'              => $email,
+            'password'           => Hash::make($pwd),
+            'system_user_type'   => 2,
+            'system_user_status' => 1,
         ]);
         return redirect()->route('admin.user.manage');
     }
